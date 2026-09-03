@@ -52,4 +52,4 @@ Thumbs.db
 .env
 __pycache__/
 # local virtual environments
-.venv
+/.venv
