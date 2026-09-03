@@ -1,0 +1,41 @@
+[33mcommit 8478d898674f49f6f500bcdb414957a4ec9a34d7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: satvikjain05 <satvikjain470@gmail.com>
+Date:   Thu Sep 3 10:41:34 2026 +0530
+
+    gitignore update
+
+[33mcommit c2acf65e15c5f2b9059950af5ab7d9bed4015071[m
+Author: satvikjain05 <satvikjain470@gmail.com>
+Date:   Thu Sep 3 09:53:40 2026 +0530
+
+    gitignore update
+
+[33mcommit c7be46f3d873cfc5e11e52b7a78784e0032c7a71[m
+Author: satvikjain05 <satvikjain470@gmail.com>
+Date:   Thu Sep 3 09:50:22 2026 +0530
+
+    gitignore: Update to ignore __pycache__ directories and local virtual environments
+
+[33mcommit bfd19ff00a0ebf7206ad72737e6b4e7e80c54a1b[m
+Author: satvikjain05 <satvikjain470@gmail.com>
+Date:   Wed Sep 2 19:42:34 2026 +0530
+
+    Initial project setup
+
+[33mcommit 56f517fac8d58f39efd4f039b47b25d333c95946[m
+Author: satvikjain05 <satvikjain470@gmail.com>
+Date:   Wed Sep 2 19:35:35 2026 +0530
+
+    Add initial project setup with backend and frontend configurations
+    
+    - Create Python virtual environment configuration file (.venv/pyvenv.cfg)
+    - Add render.yaml for deploying FastAPI backend and React frontend
+    - Implement PowerShell script (start-dev.ps1) for local development setup
+    - Establish TypeScript configuration files (tsconfig.base.json and tsconfig.json)
+    - Define Zerops configuration for PostgreSQL database and application deployment
+
+[33mcommit a000a1f09c5266ab3aee5639923db07bc9b9c4e1[m
+Author: satvikjain05 <satvikjain470@gmail.com>
+Date:   Wed Sep 2 19:34:29 2026 +0530
+
+    Initial commit with project setup, including package.json, README.md, .npmrc, .gitignore, and .env.example files.
