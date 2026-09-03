@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Nexus AI"
+title = "Senate AI"
 version = "1.0.0"
 id = "artifacts/nexus-ai"
 router = "path"
@@ -15,10 +15,10 @@ paths = [ "/" ]
 localPort = 22706
 
 [services.development]
-run = "pnpm --filter @workspace/nexus-ai run dev"
+run = "pnpm --filter @workspace/senate-ai run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/nexus-ai", "run", "build" ]
+build = [ "pnpm", "--filter", "@workspace/senate-ai", "run", "build" ]
 publicDir = "artifacts/nexus-ai/dist/public"
 serve = "static"
 

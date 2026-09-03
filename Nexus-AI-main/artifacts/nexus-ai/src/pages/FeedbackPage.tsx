@@ -108,7 +108,7 @@ export default function FeedbackPage({ onOpenSidebar }: FeedbackPageProps) {
               <MessageSquareHeart className="w-4 h-4 text-[#FF4FD8]" /> BUILDER FEEDBACK & PROTOTYPE REVIEWS
             </h2>
             <p className="text-[10px] text-slate-400 font-sans">
-              Help us refine Nexus AI — Send thoughts directly to the builders
+              Help us refine Senate AI — Send thoughts directly to the builders
             </p>
           </div>
         </div>

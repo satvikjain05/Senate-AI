@@ -259,7 +259,7 @@ export default function ChatWorkspace({ onOpenSidebar }: ChatWorkspaceProps) {
   };
 
   const handleSocialShare = (platform: "twitter" | "linkedin" | "whatsapp") => {
-    const text = encodeURIComponent(`Check out this Multi-Agent AI Council debate on Nexus AI: "${conversationTitle}"`);
+    const text = encodeURIComponent(`Check out this Multi-Agent AI Council debate on Senate AI: "${conversationTitle}"`);
     const url = encodeURIComponent(shareUrl);
     let shareLink = "";
 

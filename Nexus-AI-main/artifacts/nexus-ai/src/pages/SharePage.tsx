@@ -109,7 +109,7 @@ export default function SharePage() {
             className="bg-[#00FFB3] text-[#0B0B0E] font-sans font-bold px-4 py-2 rounded-xl border-[2px] border-[#00FFB3] shadow-[3px_3px_0px_#00C8FF] hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer text-xs"
             data-testid="button-try-nexus"
           >
-            <Plus className="w-4 h-4" /> Try Nexus AI
+            <Plus className="w-4 h-4" /> Try Senate AI
           </button>
         </div>
       </header>
@@ -129,7 +129,7 @@ export default function SharePage() {
                   Shared Multi-Agent Council Verdict
                 </h3>
                 <p className="text-xs text-slate-300 font-sans mt-0.5">
-                  You are viewing a shared read-only transcript of a 3-agent adversarial debate executed on Nexus AI.
+                  You are viewing a shared read-only transcript of a 3-agent adversarial debate executed on Senate AI.
                 </p>
               </div>
             </div>

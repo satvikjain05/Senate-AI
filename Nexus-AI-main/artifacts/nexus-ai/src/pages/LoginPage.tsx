@@ -84,7 +84,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="agent@nexus-ai.io"
+                placeholder="agent@senate-ai.io"
                 className="w-full bg-[#0D0D12] border-2 border-[#00C8FF]/50 focus:border-[#00C8FF] outline-none rounded-xl px-4 py-2.5 text-foreground font-sans text-sm"
               />
             </div>

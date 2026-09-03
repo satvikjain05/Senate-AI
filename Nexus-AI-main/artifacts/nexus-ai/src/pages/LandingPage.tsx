@@ -73,7 +73,7 @@ export default function LandingPage({ onOpenSidebar }: LandingPageProps) {
         className="mb-12 text-center"
       >
         <h1 className="font-display text-[clamp(2.5rem,7vw,5rem)] leading-tight tracking-tight drop-shadow-[0_0_15px_rgba(0,255,179,0.5)] flex items-center justify-center gap-3">
-          <span className="text-[#00FFB3]">NEXUS</span>
+          <span className="text-[#00FFB3]">SENATE</span>
           <span className="text-[#FF4FD8] drop-shadow-[0_0_15px_rgba(255,79,216,0.5)]">AI</span>
           <motion.div
             animate={{ y: [0, -12, 0] }}
