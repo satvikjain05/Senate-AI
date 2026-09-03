@@ -1,6 +1,6 @@
 # Known Issues, Gaps & Roadmap
 
-This document catalogs known issues, incomplete features, and recommended improvements for the Nexus AI platform. Organized by priority and category.
+This document catalogs known issues, incomplete features, and recommended improvements for the Senate AI platform. Organized by priority and category.
 
 ---
 
@@ -182,7 +182,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const sent = await resend.emails.send({
   from: "noreply@nexusai.app",
   to: user.email,
-  subject: "Verify your Nexus AI account",
+  subject: "Verify your Senate AI account",
   html: `Click here to verify: <a href="...${token}">Verify Email</a>`
 });
 ```

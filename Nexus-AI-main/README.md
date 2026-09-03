@@ -1,6 +1,6 @@
 <div align="center">
 
-  # ⚡ NEXUS AI ⚡
+  # ⚡ SENATE AI ⚡
   ### Multi-Agent Consensus & Adversarial Reasoning Platform
 
   [![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
@@ -9,14 +9,11 @@
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
   [![Vite](https://img.shields.io/badge/Vite-7.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
   [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
-  [![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://render.com)
-  [![Zerops](https://img.shields.io/badge/Deploy-Zerops-00C8FF?style=for-the-badge&logo=zerops&logoColor=black)](https://zerops.io)
-
   <p align="center">
     <strong>An advanced multi-LLM orchestration platform featuring parallel agent debates, conflict detection, consensus synthesis, and real-time streaming telemetry.</strong>
   </p>
 
-  [Live Demo](https://nexus-ai-frontend.onrender.com) • [Report Issue](https://github.com/Hardikkhanduja/Nexus-AI/issues) • [API Documentation](#-api-reference)
+  [Report Issue](https://github.com/satvikjain05/Nexus-AI/issues) • [API Documentation](#-api-reference)
 
 </div>
 
@@ -24,7 +21,7 @@
 
 ## 🌟 Overview
 
-**Nexus AI** is a state-of-the-art Multi-Agent Intelligence Engine designed to eliminate AI hallucination, single-model bias, and tunnel vision. Instead of relying on a single language model, Nexus AI deploys specialized councils of AI personas (e.g. *Optimist*, *Skeptic*, *Domain Specialist*, and *Synthesizer*) that debate complex queries concurrently, analyze points of agreement vs. disagreement, and synthesize a single, highly refined consensus verdict.
+**Senate AI** is a state-of-the-art Multi-Agent Intelligence Engine designed to eliminate AI hallucination, single-model bias, and tunnel vision. Instead of relying on a single language model, Senate AI deploys specialized councils of AI personas (e.g. *Optimist*, *Skeptic*, *Domain Specialist*, and *Synthesizer*) that debate complex queries concurrently, analyze points of agreement vs. disagreement, and synthesize a single, highly refined consensus verdict.
 
 ```mermaid
 graph TD
@@ -85,7 +82,6 @@ graph TD
 | **Database** | PostgreSQL / Supabase | Session, Chat History, & Quota Storage |
 | **ORM / Migrations** | Drizzle ORM / Psycopg2 | Database Schema Management & Pooling |
 | **AI LLM Engine** | Groq, Gemini, Perplexity, NVIDIA | Multi-Model Parallel Inference |
-| **Deployment** | Render / Zerops / Vercel | Production Infrastructure & CI/CD |
 
 ---
 
@@ -112,8 +108,6 @@ Nexus-AI/
 │   ├── security/              # Clerk & JWT Verification Helpers
 │   ├── websocket/             # Real-Time Chat WebSocket Handler
 │   └── requirements.txt       # Python Dependencies
-├── render.yaml                # Render Blueprint (1-Click Full-Stack Deployment)
-├── zerops.yaml                # Zerops Multi-Service Infrastructure Blueprint
 ├── pnpm-workspace.yaml        # Workspace Configuration
 └── README.md                  # Project Documentation
 ```
@@ -188,10 +182,10 @@ Open a second terminal window:
 pnpm install
 
 # Start Vite development server
-pnpm --filter @workspace/nexus-ai dev
+pnpm --filter @workspace/senate-ai dev
 ```
 
-Open `http://localhost:5173` in your browser to access **Nexus AI**!
+Open `http://localhost:5173` in your browser to access **Senate AI**!
 
 ---
 
@@ -234,7 +228,7 @@ CREATE TABLE IF NOT EXISTS messages (
   conversation_id uuid NOT NULL REFERENCES conversations(id) ON DELETE CASCADE,
   role varchar(50) NOT NULL,
   content text NOT NULL,
-  agent_name varchar(100) NOT NULL DEFAULT 'Nexus AI',
+  agent_name varchar(100) NOT NULL DEFAULT 'Senate AI',
   category varchar(100),
   persona_role varchar(50),
   provider varchar(50),
@@ -254,26 +248,6 @@ CREATE TABLE IF NOT EXISTS user_limits (
 ```
 
 ---
-
-## 🌐 Production Deployment
-
-### Option 1: 1-Click Deployment on Render.com (Recommended)
-
-Nexus AI includes a pre-configured [`render.yaml`](file:///d:/Nexus-AI/render.yaml) blueprint:
-
-1. Sign in to [Render.com](https://render.com) using your GitHub account.
-2. Click **New +** ➡️ **Blueprint**.
-3. Connect repository `Hardikkhanduja/Nexus-AI`.
-4. Enter your API keys under environment variables for `nexus-ai-backend`.
-5. Click **Apply**. Render will automatically build both Python Backend & React Frontend!
-
-### Option 2: Deployment on Zerops.io
-
-Nexus AI includes a pre-configured [`zerops.yaml`](file:///d:/Nexus-AI/zerops.yaml) blueprint:
-
-1. Import repository into Zerops.
-2. Link PostgreSQL service `db`, Python service `api`, and Static service `app`.
-3. Set `DATABASE_URL` as `${db_connectionString}`.
 
 ---
 
@@ -304,5 +278,5 @@ This project is open-source under the [MIT License](file:///d:/Nexus-AI/LICENSE)
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by Hardik & The Nexus AI Engineering Team.</sub>
+  <sub>Built with ❤️ by Hardik & The Senate AI Engineering Team.</sub>
 </div>

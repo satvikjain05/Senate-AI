@@ -1,4 +1,4 @@
-# System Architecture: Nexus AI Platform
+# System Architecture: Senate AI Platform
 
 This document describes the complete system architecture, including component relationships, data flow, database schema, authentication mechanisms, and rate limiting.
 
@@ -22,7 +22,7 @@ This document describes the complete system architecture, including component re
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         NEXUS AI PLATFORM DIAGRAM                       │
+│                        SENATE AI PLATFORM DIAGRAM                      │
 └─────────────────────────────────────────────────────────────────────────┘
 
                         ┌──────────────────────┐

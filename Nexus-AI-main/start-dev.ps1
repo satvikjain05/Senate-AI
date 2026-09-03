@@ -27,7 +27,7 @@ $backendCommand = @(
 
 $frontendCommand = @(
     "Set-Location '$repo';",
-    "& 'C:\Program Files\Git\bin\sh.exe' -lc 'cd /c/Users/satvi/Downloads/Nexus-AI/Nexus-AI-main && pnpm --filter @workspace/nexus-ai dev -- --host 0.0.0.0 --port 5173'"
+    "& 'C:\Program Files\Git\bin\sh.exe' -lc 'cd /c/Users/satvi/Downloads/Nexus-AI/Nexus-AI-main && pnpm --filter @workspace/senate-ai dev -- --host 0.0.0.0 --port 5173'"
 ) -join " "
 
 Write-Host "Starting backend..."

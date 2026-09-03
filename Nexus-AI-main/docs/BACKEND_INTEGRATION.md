@@ -59,7 +59,7 @@ async def lifespan(app: FastAPI):
 
 # Create FastAPI app with lifespan
 app = FastAPI(
-    title="Nexus AI Backend",
+    title="Senate AI Backend",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -350,7 +350,7 @@ async def websocket_endpoint(websocket: WebSocket):
 import jwt
 from typing import Optional, Dict, Any
 
-JWT_SECRET = os.environ.get("JWT_SECRET", "nexus-ai-super-secret-key-development-mode-2026")
+JWT_SECRET = os.environ.get("JWT_SECRET", "senate-ai-super-secret-key-development-mode-2026")
 
 def decode_token(token: str) -> Optional[Dict[str, Any]]:
     """
@@ -1581,7 +1581,7 @@ GITHUB_CLIENT_SECRET=...
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/nexus_ai
 
 # Authentication (Express)
-JWT_SECRET=nexus-ai-dev-key-2026-change-in-production
+JWT_SECRET=senate-ai-dev-key-2026-change-in-production
 JWT_EXPIRES_IN=24h
 FRONTEND_URL=http://localhost:5173
 

@@ -1,6 +1,6 @@
-# Getting Started: Nexus AI Platform
+# Getting Started: Senate AI Platform
 
-Welcome to **Nexus AI**, a full-stack AI chat platform that unifies multiple AI providers in a single, intuitive interface.
+Welcome to **Senate AI**, a full-stack AI chat platform that unifies multiple AI providers in a single, intuitive interface.
 
 This guide will help you set up the complete development environment and run all three services locally.
 
@@ -23,7 +23,7 @@ This guide will help you set up the complete development environment and run all
 
 ## Project Overview
 
-**Nexus AI** is a conversational platform that allows users to:
+**Senate AI** is a conversational platform that allows users to:
 
 - 💬 Chat with multiple AI providers (OpenAI, Anthropic, Google Gemini, Groq) through a unified interface
 - 💾 Persist conversations and message history in PostgreSQL
