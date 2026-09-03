@@ -53,7 +53,7 @@ export default function SignUpPage() {
             onClick={() => setLocation("/")}
             className="font-display text-3xl tracking-wider text-[#00FFB3] cursor-pointer hover:scale-105 transition-transform"
           >
-            NEXUS AI
+            SENATE AI
           </h1>
           <p className="font-sans text-xs text-[#FF4FD8] tracking-widest mt-1 uppercase font-bold">
             Create your Nexus Account
@@ -97,7 +97,7 @@ export default function SignUpPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="agent@nexus-ai.io"
+                placeholder="agent@senate-ai.io"
                 className="w-full bg-[#0D0D12] border-2 border-[#00C8FF]/50 focus:border-[#00C8FF] outline-none rounded-xl px-4 py-2.5 text-foreground font-sans text-sm"
               />
             </div>

@@ -1,5 +1,5 @@
 """
-Heterogeneous Multi-LLM Orchestration Engine for Nexus AI.
+Heterogeneous Multi-LLM Orchestration Engine for Senate AI.
 Executes Category Classification -> Predefined Model Routing -> Concurrent Agent Execution -> Synthesis.
 Handles provider failures, rate limits, and fallback strategies gracefully.
 """
@@ -225,7 +225,7 @@ class MultiAgentOrchestrator:
         ])
 
         synthesis_prompt = (
-            f"You are the Lead Synthesizer for Nexus AI.\n"
+            f"You are the Lead Synthesizer for Senate AI.\n"
             f"Three specialized council agents analyzed this query: \"{user_query}\" in category: '{category}'\n\n"
             f"Here are the responses from the different council roles:\n{agent_inputs_formatted}\n\n"
             f"INSTRUCTIONS:\n"

@@ -25,14 +25,14 @@ from backend.agents.council import get_available_councils
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("Starting up Nexus AI FastAPI application...")
+    logger.info("Starting up Senate AI FastAPI application...")
     init_pool()
     yield
-    logger.info("Shutting down Nexus AI FastAPI application...")
+    logger.info("Shutting down Senate AI FastAPI application...")
     close_pool()
 
 app = FastAPI(
-    title="Nexus AI Backend Engine",
+    title="Senate AI Backend Engine",
     version="2.0.0",
     lifespan=lifespan,
 )
@@ -99,7 +99,7 @@ async def get_current_user(authorization: Optional[str] = Header(None)):
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "service": "Nexus AI Backend"}
+    return {"status": "ok", "service": "Senate AI Backend"}
 
 @app.get("/api/health/db")
 def db_health_check():

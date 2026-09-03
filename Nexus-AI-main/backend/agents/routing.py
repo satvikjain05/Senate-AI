@@ -1,5 +1,5 @@
 """
-Centralized Predefined Model Routing Configuration for Nexus AI.
+Centralized Predefined Model Routing Configuration for Senate AI.
 Maps user query categories across active providers: Perplexity, Gemini, Groq (Llama), NVIDIA NIM (Qwen/Nemotron).
 """
 

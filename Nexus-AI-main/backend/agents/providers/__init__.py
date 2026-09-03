@@ -1,5 +1,5 @@
 """
-Provider registry for Nexus AI.
+Provider registry for Senate AI.
 Supports API integrations for: Perplexity, Gemini, Groq (Llama), NVIDIA NIM (Qwen/Nemotron), OpenAI, Anthropic, DeepSeek.
 """
 

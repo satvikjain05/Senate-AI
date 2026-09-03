@@ -1,6 +1,6 @@
 """
 Shared System Configuration & Rate Limit Constants.
-Single Source of Truth for Nexus AI Quotas.
+Single Source of Truth for Senate AI Quotas.
 """
 
 GUEST_DAILY_LIMIT = 5

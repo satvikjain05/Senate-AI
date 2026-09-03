@@ -1,5 +1,5 @@
 """
-Domain Councils and Adversarial Role Definitions for Nexus AI.
+Domain Councils and Adversarial Role Definitions for Senate AI.
 """
 
 from typing import List, Dict, Any, Optional

@@ -1,6 +1,6 @@
 """
 Server-side rate limiting backed by PostgreSQL (user_limits table) and Server-side Guest IP tracking.
-Single Source of Truth for Nexus AI Quota Enforcement.
+Single Source of Truth for Senate AI Quota Enforcement.
 """
 
 import logging

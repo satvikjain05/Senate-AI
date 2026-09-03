@@ -1,5 +1,5 @@
 """
-WebSocket Chat Handler for Nexus AI.
+WebSocket Chat Handler for Senate AI.
 Supports Clerk Authentication, Freemium Tier Gating, Parallel Multi-Agent Debate,
 and PostgreSQL JSONB persistence.
 """
