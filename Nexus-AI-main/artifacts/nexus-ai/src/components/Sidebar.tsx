@@ -109,7 +109,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <div className="p-5 flex flex-col items-start gap-4">
               <div className="flex items-center justify-between w-full">
                 <h2 className="font-display text-xs tracking-widest mt-1">
-                  <span className="text-[#00FFB3]">NEXUS</span> <span className="text-[#FF4FD8]">AI</span>
+                  <span className="text-[#00FFB3]">SENATE</span> <span className="text-[#FF4FD8]">AI</span>
                 </h2>
                 <div className="bg-primary/10 border border-primary rounded-full px-2 py-0.5 text-[9px] font-sans font-bold text-[#00FFB3]">
                   v1.0
