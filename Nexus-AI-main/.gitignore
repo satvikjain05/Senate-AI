@@ -53,3 +53,6 @@ Thumbs.db
 __pycache__/
 # local virtual environments
 /.venv
+# agent skills
+.agents
+brag-output

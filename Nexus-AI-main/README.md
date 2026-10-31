@@ -62,7 +62,7 @@ graph TD
 ### 📊 Agent Telemetry & Analytics
 - **Live Performance Dashboard**: Real-time monitoring of model latencies, token throughput, session usage shares, and fallback event frequencies.
 - **Interactive Analytics**: Visual distribution of queries by domain category using Recharts.
-
+ 
 ### 🎨 Neo-Brutalist Cyberpunk Design System
 - Built with **TailwindCSS v4**, **Framer Motion**, and **Lucide Icons**.
 - Smooth dark mode glassmorphism, responsive drawer sidebars, custom code block syntax highlighting, and interactive micro-animations.
