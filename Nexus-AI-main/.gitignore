@@ -56,3 +56,5 @@ __pycache__/
 # agent skills
 .agents
 brag-output
+
+docs/
