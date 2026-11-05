@@ -54,7 +54,8 @@ __pycache__/
 # local virtual environments
 /.venv
 # agent skills
-.agents
-brag-output
+.agents/
+brag-output/
 
 docs/
+/backend/tests/test_phishing_api.py

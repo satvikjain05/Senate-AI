@@ -58,14 +58,15 @@ class SecurityError(Exception):
         self.pattern_description = pattern_description
 
 
-def sanitize_input(text: str) -> str:
+def sanitize_input(text: str, detect_injection_attempts: bool = True) -> str:
     """
     Sanitize user input before passing to an LLM.
 
     - Strips HTML tags and dangerous markup
     - Normalizes excessive whitespace
     - Trims to a reasonable length (10,000 chars)
-    - Checks for prompt injection patterns
+    - Checks for prompt injection patterns by default; callers handling untrusted
+      quoted content can disable detection after adding appropriate context
 
     Args:
         text: Raw user input.
@@ -93,7 +94,7 @@ def sanitize_input(text: str) -> str:
         cleaned = cleaned[:max_length]
 
     # Check for prompt injection
-    detected = detect_prompt_injection(cleaned)
+    detected = detect_prompt_injection(cleaned) if detect_injection_attempts else None
     if detected:
         raise SecurityError(
             "Your message was flagged as a potential prompt injection attempt. "

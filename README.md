@@ -171,6 +171,39 @@ pip install -r backend/requirements.txt
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
+### Connect a phishing detector
+
+The phishing detector can call Senate's backend without running Senate's frontend. Senate provides `POST /api/phishing/analyze`, which accepts an email subject/body and returns an AI-generated phishing assessment.
+
+1. Generate a shared secret on the Senate computer:
+
+   ```powershell
+   python -c "import secrets; print(secrets.token_urlsafe(32))"
+   ```
+
+2. Set `PHISHING_API_KEY=<generated-secret>` in Senate's root `.env` file. Set the same secret as `SENATE_API_KEY` in the phishing detector's **backend** environment. Never put this key in browser code or commit it.
+3. Keep the Senate backend running with `--host 0.0.0.0`. On the phishing detector computer, set `SENATE_API_URL=http://<Senate-computer-private-IP>:8000`. Allow inbound TCP port 8000 on the Senate computer's Windows **Private** firewall profile only.
+4. Verify network access by opening `http://<Senate-computer-private-IP>:8000/health` from the detector computer.
+
+Example request from the detector's Python backend:
+
+```python
+import os
+
+import httpx
+
+response = httpx.post(
+    f"{os.environ['SENATE_API_URL'].rstrip('/')}/api/phishing/analyze",
+    headers={"X-API-Key": os.environ["SENATE_API_KEY"]},
+    json={"subject": email_subject, "body": email_body},
+    timeout=120.0,
+)
+response.raise_for_status()
+risk_assessment = response.json()["risk_assessment"]
+```
+
+The JSON response includes `risk_assessment.verdict` (`likely_phishing`, `likely_legitimate`, or `uncertain`), a confidence score, and model-identified indicators. This is advisory only; it does not verify sender identity or replace SPF, DKIM, DMARC, URL reputation, or other security checks. Once the backend is running, see `http://<Senate-computer-private-IP>:8000/docs` for the interactive OpenAPI reference.
+
 ---
 
 ### 4. Frontend Setup (React + Vite)

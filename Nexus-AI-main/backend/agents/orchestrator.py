@@ -70,7 +70,8 @@ class MultiAgentOrchestrator:
         provider_name: str,
         fallback_provider: str,
         user_query: str,
-        context: Optional[List[Dict[str, Any]]] = None
+        context: Optional[List[Dict[str, Any]]] = None,
+        analysis_system_instructions: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Run a single agent role with primary provider and fallback tolerance.
@@ -90,7 +91,11 @@ class MultiAgentOrchestrator:
                 response_text = await provider.generate(
                     prompt=prompt_with_role,
                     context=context,
-                    system_prompt=role.system_prompt
+                    system_prompt=(
+                        f"{role.system_prompt}\n\n{analysis_system_instructions}"
+                        if analysis_system_instructions
+                        else role.system_prompt
+                    )
                 )
                 
                 # Check for valid text output
@@ -119,7 +124,7 @@ class MultiAgentOrchestrator:
             "icon": role.icon,
             "provider_used": provider_name,
             "content": f"Analyzed {user_query[:50]}... from the {role.name} perspective ({role.stance}). Core objective is evaluating risk, alignment, and actionable upside.",
-            "status": "success",
+            "status": "fallback",
             "latency": f"{elapsed}s"
         }
 
@@ -128,7 +133,9 @@ class MultiAgentOrchestrator:
         user_query: str,
         council_id: str = "auto",
         user_tier: str = "free",
-        context: Optional[List[Dict[str, Any]]] = None
+        context: Optional[List[Dict[str, Any]]] = None,
+        synthesis_instructions: Optional[str] = None,
+        analysis_system_instructions: Optional[str] = None,
     ) -> AsyncGenerator[Dict[str, Any], None]:
         """
         Full async orchestration pipeline:
@@ -184,7 +191,8 @@ class MultiAgentOrchestrator:
                 provider_name=config.get("provider", "groq"),
                 fallback_provider=config.get("fallback", "gemini"),
                 user_query=user_query,
-                context=context
+                context=context,
+                analysis_system_instructions=analysis_system_instructions,
             )
             agent_tasks.append(task)
 
@@ -239,6 +247,8 @@ class MultiAgentOrchestrator:
             f"```\n\n"
             f"Second, synthesize the absolute best, most comprehensive guidance combining the strengths of all stances into a structured Markdown response."
         )
+        if synthesis_instructions:
+            synthesis_prompt += f"\n\nAdditional output requirements:\n{synthesis_instructions}"
 
         # Fallback chain for Synthesizer: Groq -> Gemini -> Perplexity -> NVIDIA
         synthesis_providers = ["groq", "gemini", "perplexity", "nvidia"]
@@ -249,8 +259,18 @@ class MultiAgentOrchestrator:
                 logger.info(f"Attempting multi-agent synthesis using provider: '{provider_name}'...")
                 synthesizer_provider = get_provider(provider_name)
                 synthesizer_text_parts = []
+                system_prompt = (
+                    "You are the Lead Synthesizer for Senate AI.\n\n"
+                    f"{analysis_system_instructions}"
+                    if analysis_system_instructions
+                    else None
+                )
                 
-                async for chunk in synthesizer_provider.stream(synthesis_prompt, context=context):
+                async for chunk in synthesizer_provider.stream(
+                    synthesis_prompt,
+                    context=context,
+                    system_prompt=system_prompt,
+                ):
                     # Filter out error placeholders from failed providers
                     if chunk and not chunk.startswith("[") and not "Stream Error" in chunk and not "Completing multi-agent" in chunk:
                         synthesizer_text_parts.append(chunk)
@@ -268,7 +288,8 @@ class MultiAgentOrchestrator:
                     yield {
                         "type": "debate_complete",
                         "full_text": clean_user_text,
-                        "conflict_analysis": conflict_data
+                        "conflict_analysis": conflict_data,
+                        "status": "success",
                     }
                     break
                 else:
@@ -288,7 +309,8 @@ class MultiAgentOrchestrator:
             yield {
                 "type": "debate_complete",
                 "full_text": "\n\n".join([f"**{r['role_name']}**: {r['content']}" for r in cleaned_agent_results]),
-                "conflict_analysis": self._extract_conflict_json("", cleaned_agent_results)
+                "conflict_analysis": self._extract_conflict_json("", cleaned_agent_results),
+                "status": "fallback",
             }
 
     def _extract_conflict_json(self, synthesis_text: str, agent_results: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -306,6 +328,8 @@ class MultiAgentOrchestrator:
                 conflict_json["points_of_agreement"] = parsed.get("points_of_agreement", conflict_json["points_of_agreement"])
                 conflict_json["points_of_disagreement"] = parsed.get("points_of_disagreement", conflict_json["points_of_disagreement"])
                 conflict_json["verdict_summary"] = parsed.get("verdict_summary", conflict_json["verdict_summary"])
+                if "phishing_assessment" in parsed:
+                    conflict_json["phishing_assessment"] = parsed["phishing_assessment"]
         except Exception as e:
             logger.warning(f"Could not parse structured conflict JSON: {e}")
             
